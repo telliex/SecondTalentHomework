@@ -1,0 +1,28 @@
+.detail-related {
+  margin-top: 40px;
+
+  .products-related {
+    overflow: hidden;
+    height: 500px;
+  }
+
+  .h2 {
+    text-align: center;
+
+    strong {
+      font-size: 2.25rem;
+      color: #212121;
+      font-weight: 200;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .detail-related .products-related {
+    overflow: visible;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 769px) {}

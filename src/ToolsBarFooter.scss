@@ -1,0 +1,167 @@
+@media only screen and (max-width: 768px) {
+    .toolbar-footer.toolbar {
+
+        justify-content: center;
+
+        .navigation-bar {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+
+
+            button {
+                width: 34px;
+                height: 32px;
+                background-color: #ffffff;
+                border: 1px solid #828282;
+                border-radius: 4px;
+
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                gap: 10px;
+
+                li {
+                    list-style: none;
+                    font-size: 0.75rem;
+                    width: 17px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+
+                }
+
+                li.focus {
+                    background: #e5e5e5;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .field.limiter {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .toolbar-footer.toolbar {
+        justify-content: flex-end;
+
+        .navigation-bar {
+            display: none;
+        }
+
+        .field.limiter {
+            display: flex;
+        }
+
+        .toolbar-amount {
+            line-height: 18px;
+            margin: 0;
+            padding: 7px 0;
+            text-align: left;
+            vertical-align: middle;
+            position: absolute;
+            left: 100px;
+
+        }
+    }
+}
+
+.toolbar-footer.toolbar {
+
+    margin-bottom: 30px;
+
+    display: flex;
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        background-size: 30px 60px;
+        text-indent: 0.01em;
+        text-overflow: '';
+    }
+
+    select {
+        background: #fff url(https://mabento2.test/static/version1714457346/frontend/Magento/hope/en_US/images/select-bg.svg) no-repeat 100% 45%;
+        background-clip: padding-box;
+        border: none;
+        border-radius: 0px;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        height: 32px;
+        line-height: 1.428571429;
+        padding: 4px 25px 5px 10px;
+        vertical-align: baseline;
+        width: 100%;
+        box-sizing: border-box;
+        color: #4f4f4f;
+    }
+
+
+    option {
+        font-weight: normal;
+        display: block;
+        min-height: 1.2em;
+        padding: 0px 2px 1px;
+        white-space: nowrap;
+    }
+
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+
+    select {
+        background-color: #f0f0f0;
+        box-shadow: inset 0 1px 0 0 #ffffff, inset 0 -1px 0 0 rgba(204, 204, 204, 0.3);
+        border-radius: 3px;
+    }
+
+    label {
+        cursor: default;
+    }
+
+    .field {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .limiter-text {
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: 400;
+            font-family: poppins;
+            white-space: break-spaces;
+            color: rgb(130, 130, 130);
+            text-transform: none;
+        }
+
+        .label {
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: 400;
+            font-family: poppins;
+            white-space: break-spaces;
+            color: rgb(130, 130, 130);
+            text-transform: none;
+        }
+    }
+
+}
+
+.toolbar-products {
+    background-color: transparent;
+}

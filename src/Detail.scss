@@ -1,0 +1,385 @@
+@import "./main";
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+.product-info-main .page-title-wrapper h1 {
+  margin-bottom: 15px;
+  line-height: 1.2;
+  font-weight: 200;
+  white-space: break-spaces;
+  color: rgb(33, 33, 33);
+}
+
+.product-info-price .price-box .price-container .price {
+  font-size: 2.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.page-wrapper>.breadcrumbs,
+.page-wrapper>.top-container,
+.page-wrapper>.widget {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+/* 小於等於 768px 寬度的設備，例如手機 */
+@media only screen and (max-width: 768px) {
+  .product-detail .column.main {
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-placeholder {
+    width: 700px;
+    position: relative;
+  }
+
+  .product.media {
+    flex: 1;
+    position: relative;
+    padding: 10px;
+  }
+
+  .product-info-main {
+    padding: 20px;
+  }
+
+  .product-addto-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-align: left;
+  }
+
+  .product-social-links {
+    margin: 0 0 20px;
+    text-align: center;
+    min-width: 400px;
+  }
+
+  .product-social-links .action.towishlist,
+  .product-social-links .action.tocompare,
+  .product-social-links .action.tomail {
+
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    line-height: 38px;
+    font-weight: 500;
+    font-family: poppins;
+    white-space: break-spaces;
+    color: rgb(130, 130, 130);
+    text-transform: none;
+  }
+
+  .fotorama__nav-wrap {
+    display: none;
+  }
+}
+
+/* 大於 768px 寬度的設備，例如平板 */
+@media only screen and (min-width: 769px) {
+  .product-detail .column.main {
+
+    display: flex;
+    flex-direction: row;
+
+    .gallery-placeholder {
+      width: 700px;
+      position: relative;
+    }
+
+    .product.media {
+      flex: 1;
+      position: relative;
+    }
+
+  }
+
+
+
+  .breadcrumbs {
+    max-width: 1280px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+  .product-addto-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .product-social-links .action.towishlist,
+  .product-social-links .action.tocompare,
+  .product-social-links .action.tomail {
+
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.875rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    line-height: 38px;
+    font-weight: 500;
+    font-family: poppins;
+    white-space: break-spaces;
+    color: rgb(130, 130, 130);
+    text-transform: none;
+  }
+
+}
+
+
+
+
+
+
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+  ;
+
+  span {
+    font-size: 0.875rem;
+  }
+}
+
+
+.product-info-main .stock.available,
+.product-info-main .stock.unavailable {
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.product-info-main .stock.available span::before,
+.product-info-main .stock.unavailable span::before {
+  border-radius: 6px;
+  width: 12px;
+  height: 12px;
+  background: #83D367;
+  content: '';
+  top: 4px;
+  right: 90px;
+  display: block;
+  position: absolute;
+}
+
+.product-info-main .stock.unavailable {
+  color: #d80000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product-info-main .stock.available {
+  color: #000000;
+}
+
+.product-info-main .product-info-price .price-box .price-container>span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.action.primary,
+.action-primary {
+  background-image: none;
+  background: rgb(125, 184, 0);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  filter: drop-shadow(rgba(0, 0, 0, 0.14) 0px 4px 10px);
+
+  span {
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-weight: 800;
+    white-space: break-spaces;
+    color: rgb(255, 255, 255);
+    text-transform: none;
+  }
+}
+
+.breadcrumbs {
+
+  min-height: 24px;
+
+  .items {
+    font-size: 0.825rem;
+    color: #707070;
+    margin: 0;
+    padding: 0;
+    list-style: none none;
+  }
+
+  .item:not(:last-child):after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 10px;
+    line-height: 18px;
+    content: '\e608';
+    font-family: 'luma-icons';
+    margin: 0 10px;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+  }
+
+  .item:not(:last-child) {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .item:last-child strong {
+    font-weight: 200;
+    color: #828282;
+  }
+
+  .items>li {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+
+.summary {
+  font-size: 1rem;
+  color: #828282;
+
+}
+
+
+.product-detail {
+  .input-text.qty {
+    background: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c2c2c2;
+    font-size: 0.875rem;
+    height: 32px;
+    line-height: 1.428571429;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+  }
+
+  .input-text.qty::before {
+    content: "+";
+    position: absolute;
+    left: -10px;
+    /* 調整位置以適當顯示在數字前 */
+    top: 0;
+    /* 調整垂直位置 */
+  }
+
+  .input-text.qty:after {
+    content: "-";
+    position: absolute;
+    right: -10px;
+    /* 調整位置以適當顯示在數字後 */
+    top: 0;
+    /* 調整垂直位置 */
+  }
+
+
+  .product-info-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+
+    .product-info-stock-sku {
+      padding-bottom: 10px;
+      padding-left: 10%;
+      text-align: right;
+
+    }
+
+    .stock {
+      margin-bottom: 15px;
+    }
+
+    .attribute {
+      display: flex;
+      gap: 10px;
+
+      strong {
+        font-weight: 200;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+.fieldset>* {
+  letter-spacing: normal;
+}
+
+.box-tocart .action.tocart:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.product-social-links {
+  margin: 0 0 20px;
+  text-align: center;
+  min-width: 400px;
+}
+
+
+
+
+
+.product-social-links .action.towishlist:before {
+  font-family: 'luma-icons';
+  content: '\e600';
+  margin-right: 5px;
+}
+
+.product-social-links .action.tocompare:before {
+  font-family: 'luma-icons';
+  content: '\e61e';
+  margin-right: 5px;
+}
+
+.product-social-links .action.tomail:before {
+  font-family: 'luma-icons';
+  content: '\e61d';
+  margin-right: 5px;
+}

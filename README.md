@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+## 任務
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### STEP1: 在本機架構起 Magento2 opensource版本:  在你的本地開發環境中架設一個 Magento2 實例
 
-## Available Scripts
+使用 <https://github.com/markshust/docker-magento> 進行搭建 Mangento `v2.4.7`。
 
-In the project directory, you can run:
+事前準備：
 
-### `npm start`
+1. 安裝前請先確保本地的 php , MySQL, apache 等服務都已關閉。待會建立 Magento 時，Docker 會需要這些 port號。
+2. 安裝 Docker
+3. 註冊與登入 magento market , 取得公鑰（user）與私鑰（password）
 
-Runs the app in the development mode.\
+安裝
+
+1. Create your project directory then go into it:
+
+```
+mkdir -p ~/Sites/magento
+```
+
+2. 安裝 magento
+
+```
+cd magento
+```
+
+```shell notranslate position-relative overflow-auto
+curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/onelinesetup | bash -s -- magento.test 2.4.7 community
+```
+
+3. 建立
+   - 前端頁面：<https://mabento2.test/>
+   - 後台：<https://mabento2.test/>
+   - phpMyadmin: <http://localhost:8080>
+
+4.建立後台使用者
+
+```
+bin/create-user
+```
+
+5,有異動會更新代碼時，執行
+
+```
+bin/magento setup:upgrade
+```
+
+6.其他
+
+- 關閉 2FA
+
+1. **app/etc/config.php**
+2. 找到 **`'Magento_TwoFactorAuth' => 1`** 并将其更改为  **`'Magento_TwoFactorAuth' => 0`** 。
+
+### STEP2: 設計稿取得
+
+設計稿 : <https://www.figma.com/community/file/1244387477432458401/ecommerce-template-simplewood-theme-full-magento-2?searchSessionId=lvq85029-e5ow23htp4>
+
+### STEP3: 設計稿實現
+
+#### Install
+
+```
+npm install
+```
+
+#### npm run build
+
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm run
+```

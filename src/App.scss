@@ -1,0 +1,166 @@
+@import "./main";
+
+/* 小於等於 768px 寬度的設備，例如手機 */
+@media only screen and (max-width: 768px) {
+  .sidebar-main {
+    display: none;
+  }
+
+
+  .toolbar-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .toolbar-amount {
+      line-height: 18px;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: middle;
+      position: relative;
+      left: 0px;
+      color: #828282;
+    }
+
+    .sorter {
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+}
+
+/* 大於 768px 寬度的設備，例如平板 */
+@media only screen and (min-width: 769px) {
+
+  .page-products .columns {
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .main {
+    width: 70%;
+    position: relative;
+  }
+
+  .sidebar-main {
+    min-width: 250px;
+    width: 20%;
+    position: relative;
+
+    ul {
+      padding: 0;
+    }
+
+    .sub-title {
+      color: $base-title-color;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    .options {
+      font-weight: 200;
+      color: $base-light-title-color;
+      padding: 10px;
+
+      li {
+        list-style: none;
+        border-bottom: 1px solid #dedede;
+        padding: 1rem 0;
+        cursor: pointer;
+        position: relative;
+
+        &:first-child {
+          border-top: 1px solid #dedede;
+        }
+
+        &::after {
+          font-family: 'luma-icons';
+          color: #828282;
+          content: '\e622';
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+
+    .compare {
+      font-weight: 200;
+      color: $base-light-title-color;
+      padding: 10px;
+
+      span {
+        color: #828282;
+        font-size: 0.875rem;
+      }
+
+
+      li {
+        list-style: none;
+
+        padding: 0.75rem 0;
+        cursor: pointer;
+        position: relative;
+        text-decoration: underline;
+        margin-left: 30px;
+
+
+        &::before {
+          font-family: 'luma-icons';
+          color: #828282;
+          content: '\e616';
+          position: absolute;
+          left: -20px;
+          top: 15px;
+          font-size: 0.85rem;
+        }
+      }
+
+      .compare-buttons {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+
+        button {
+          width: 100px;
+          height: 40px;
+          border: none;
+          background: rgb(125, 184, 0);
+          border-radius: 2px;
+          font-weight: 600;
+          color: #fff;
+          font-size: 1rem;
+          filter: drop-shadow(rgba(0, 0, 0, 0.14) 0px 4px 10px);
+          margin-right: 40px;
+        }
+
+        a {
+          text-decoration: underline;
+          color: #828282;
+          font-weight: 400;
+        }
+
+      }
+    }
+
+    .wishlist {
+      padding: 10px;
+
+      p {
+        font-weight: 200;
+      }
+    }
+  }
+
+
+}

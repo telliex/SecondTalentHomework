@@ -1,0 +1,313 @@
+.toolbar.toolbar-header {
+    label {
+        cursor: default;
+    }
+
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        background-size: 30px 60px;
+        text-indent: 0.01em;
+        text-overflow: '';
+    }
+
+    select {
+        background: #fff url(https://mabento2.test/static/version1714457346/frontend/Magento/hope/en_US/images/select-bg.svg) no-repeat 100% 45%;
+        background-clip: padding-box;
+        border: none;
+        border-radius: 0px;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        height: 32px;
+        line-height: 1.428571429;
+        padding: 4px 25px 5px 10px;
+        vertical-align: baseline;
+        width: 100%;
+        box-sizing: border-box;
+        color: #4f4f4f;
+    }
+
+    option {
+        font-weight: normal;
+        display: block;
+        min-height: 1.2em;
+        padding: 0px 2px 1px;
+        white-space: nowrap;
+    }
+
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .toolbar.toolbar-header {
+
+        margin: 20px 20px 40px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+
+        .shop-by {
+            display: block;
+
+            button {
+                background-color: #ffffff;
+
+                border-radius: 5px;
+                border: 1px solid #cccccc;
+                width: 80px;
+                height: 30px;
+            }
+        }
+
+        select {
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 0 0 #ffffff, inset 0 -1px 0 0 rgba(204, 204, 204, 0.3);
+            border-radius: 5px;
+        }
+
+
+        .modes {
+            display: none;
+        }
+
+        .toolbar-amount {
+            line-height: 18px;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            vertical-align: middle;
+            position: absolute;
+            left: 20px;
+            color: #828282;
+            top: 60px;
+        }
+
+        .sorter {
+            position: static;
+            display: flex;
+            align-items: center;
+
+            .sorter-options {
+                margin: 0 5px 0 7px;
+                width: auto;
+            }
+
+            .sorter-label {
+                color: rgb(130, 130, 130);
+            }
+
+            .sorter-action:before {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 16px;
+                line-height: inherit;
+                color: #828282;
+                content: '\e613';
+                font-family: 'luma-icons';
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+            }
+
+            .sorter-action>span {
+                border: 0;
+                clip: rect(0, 0, 0, 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+        }
+
+
+    }
+
+
+
+
+}
+
+@media only screen and (min-width: 769px) {
+    .toolbar.toolbar-header {
+
+
+        display: flex;
+        justify-content: space-between;
+
+        .shop-by {
+            display: none;
+        }
+
+        select {
+            background-color: #f0f0f0;
+            box-shadow: inset 0 1px 0 0 #ffffff, inset 0 -1px 0 0 rgba(204, 204, 204, 0.3);
+            border-radius: 3px;
+        }
+
+        .modes {
+            display: inline-block;
+
+            margin-right: 20px;
+
+            .modes-label {
+                border: 0;
+                clip: rect(0, 0, 0, 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            .modes-mode.active {
+                box-shadow: inset 0 1px 0 0 rgba(204, 204, 204, 0.8), inset 0 -1px 0 0 rgba(204, 204, 204, 0.3);
+                background: #dedede;
+                color: #9e9e9e;
+            }
+
+
+            .modes-mode {
+                background-color: #f0f0f0;
+                box-shadow: inset 0 1px 0 0 #ffffff, inset 0 -1px 0 0 rgba(204, 204, 204, 0.3);
+                color: #5e5e5e;
+                border: 1px solid #ccc;
+                border-right: 0;
+
+                font-weight: 400;
+                line-height: 1;
+                padding: 7px 10px;
+                text-align: center;
+                display: inline-block;
+                text-decoration: none;
+            }
+
+            .modes-mode:before {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 16px;
+                line-height: inherit;
+                color: #7d7d7d;
+                content: '\e60d';
+                font-family: 'luma-icons';
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+            }
+
+            .mode-list:before {
+                content: '\e60b';
+            }
+
+            .modes-label+.modes-mode {
+                border-radius: 3px 0 0 3px;
+            }
+
+            .modes-mode>span {
+                border: 0;
+                clip: rect(0, 0, 0, 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            .modes-mode:last-child {
+                border-radius: 0 3px 3px 0;
+                border-right: 1px solid #ccc;
+            }
+
+
+        }
+
+        .toolbar-amount {
+            line-height: 18px;
+            margin: 0;
+            padding: 7px 0;
+            text-align: left;
+            vertical-align: middle;
+            position: absolute;
+            left: 100px;
+            color: #828282;
+        }
+
+        .sorter {
+            position: static;
+            display: flex;
+            align-items: center;
+
+            .sorter-options {
+                margin: 0 5px 0 7px;
+                width: auto;
+            }
+
+            .sorter-label {
+                color: rgb(130, 130, 130);
+            }
+
+            .sorter-action:before {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 16px;
+                line-height: inherit;
+                color: #828282;
+                content: '\e613';
+                font-family: 'luma-icons';
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+            }
+
+            .sorter-action>span {
+                border: 0;
+                clip: rect(0, 0, 0, 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+        }
+
+    }
+
+}
+
+.toolbar-products {
+    background-color: transparent;
+}
