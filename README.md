@@ -58,8 +58,12 @@ bin/magento setup:upgrade
 
 ### STEP3: 設計稿實現
 
-目前以 react 框架建立產品列表頁與產品詳細頁，實作 RWD (>769px & < 768px)。
-HTML 架構不是未精簡，乃參考 Luma 主題去調整。顧有看似冗余的 HTML & CSS Naming.
+目前以 react 框架建立產品列表頁與產品詳細頁，
+1.實作 RWD (>769px & < 768px)。
+2.套用 API , API 不具備的 data ,以 hard code 處理。
+3.套用 SCSS 並使用 SCSS 變數。
+4.以 react 框架簡單搭建，預覽方式如下。
+HTML 架構不是未精簡，乃參考 Luma 主題去調整。故有看似冗余的 HTML & CSS Naming.
 
 
 #### Install
