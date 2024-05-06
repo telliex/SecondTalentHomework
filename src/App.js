@@ -13,9 +13,7 @@ function App() {
       .then((data) => {
         console.log("data:", data);
 
-        setProducts([
-          ...products.sort((a, b) => a.rating.rate - b.rating.rate),
-        ]);
+        setProducts([...data.sort((a, b) => a.rating.rate - b.rating.rate)]);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
