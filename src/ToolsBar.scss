@@ -11,7 +11,7 @@
         margin-block-end: 1em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
-        unicode-bidi: isolate;
+
     }
 
     select {
@@ -54,8 +54,19 @@
         margin-block-end: 1em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
-        unicode-bidi: isolate;
     }
+
+    .mode-grid,
+    .mode-list {
+        cursor: pointer;
+    }
+
+    .mode-grid.active,
+    .mode-list.active {
+        cursor: default;
+    }
+
+
 }
 
 /* 小於等於 768px 寬度的設備，例如手機 */

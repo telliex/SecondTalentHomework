@@ -8,6 +8,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("rank");
   const footerToolsBar = useRef();
+  const [itemType, setItemType] = useState("grid");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -23,6 +24,10 @@ function App() {
         console.error("Error fetching products:", error);
       });
   }, []);
+
+  function setProductItemsType(type) {
+    setItemType(type);
+  }
 
   function getFilter(data) {
     setFilter(data);
@@ -141,11 +146,17 @@ function App() {
             getFilter={getFilter}
             reverseData={reverseData}
             products={products}
+            setProductItemsType={setProductItemsType}
           />
           <div className="products wrapper grid products-grid">
-            <ol className="products list items product-items product-items-list">
+            <ol
+              className={
+                "products items product-items product-items-list" +
+                (itemType !== "grid" ? " list" : "")
+              }
+            >
               {products.map((item) => {
-                return <ProductItem item={item}></ProductItem>;
+                return <ProductItem item={item} type={itemType}></ProductItem>;
               })}
             </ol>
           </div>

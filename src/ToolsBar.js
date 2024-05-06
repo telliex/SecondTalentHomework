@@ -1,22 +1,25 @@
 import "./ToolsBar.scss";
 import { useState } from "react";
-function ToolsBar({ getFilter, reverseData, products }) {
+function ToolsBar({ getFilter, reverseData, products, setProductItemsType }) {
   const [selectedOption, setSelectedOption] = useState("rank");
   const [order, setOrder] = useState(false);
+  const [itemTye, setItemType] = useState("grid");
   // 當選擇改變時觸發的函數
   const handleSelectChange = (event) => {
     const value = event.target.value;
     setSelectedOption(value);
     setOrder(false);
     getFilter(value);
-
-    // 在這裡添加你想要觸發的其他函數
-    // 舉例：handleOtherFunction(value);
   };
 
   const changeOrder = () => {
     setOrder(!order);
     reverseData(selectedOption);
+  };
+
+  const changeItemType = (data) => {
+    setItemType(data);
+    setProductItemsType(data);
   };
 
   return (
@@ -31,22 +34,25 @@ function ToolsBar({ getFilter, reverseData, products }) {
           </strong>
           <strong
             title="Grid"
-            className="modes-mode active mode-grid"
+            className={
+              "modes-mode mode-grid " + (itemTye === "grid" ? " active" : "")
+            }
             data-value="grid"
+            onClick={() => changeItemType("grid")}
           >
             <span>Grid</span>
           </strong>
-          <a
-            className="modes-mode mode-list"
+          <strong
             title="List"
-            href="#"
-            data-role="mode-switcher"
+            className={
+              "modes-mode  mode-list" + (itemTye !== "grid" ? " active" : "")
+            }
             data-value="list"
             id="mode-list"
-            aria-labelledby="modes-label mode-list"
+            onClick={() => changeItemType("list")}
           >
             <span>List</span>
-          </a>
+          </strong>
         </div>
         <p className="toolbar-amount" id="toolbar-amount">
           <span className="toolbar-number">{products.length}</span> Items

@@ -1,9 +1,10 @@
 import "./ProductItem.scss";
-// import { Link, useNavigate } from "react-router-dom";
-import Detail from "./Detail";
-function ProductItem({ item }) {
+function ProductItem({ item, type }) {
   return (
-    <li key={item.title + item.id} className="item product product-item">
+    <li
+      key={item.title + item.id}
+      className={"item product product-item " + type}
+    >
       <a
         href={"./detail?id=" + item.id}
         className="product photo product-item-photo-container"
