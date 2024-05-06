@@ -1,16 +1,22 @@
 import "./ToolsBar.scss";
 import { useState } from "react";
-function ToolsBar({ getFilter }) {
+function ToolsBar({ getFilter, reverseData }) {
   const [selectedOption, setSelectedOption] = useState("rank");
-
+  const [order, setOrder] = useState(false);
   // 當選擇改變時觸發的函數
   const handleSelectChange = (event) => {
     const value = event.target.value;
     setSelectedOption(value);
+    setOrder(false);
     getFilter(value);
 
     // 在這裡添加你想要觸發的其他函數
     // 舉例：handleOtherFunction(value);
+  };
+
+  const changeOrder = () => {
+    setOrder(!order);
+    reverseData(selectedOption);
   };
 
   return (
@@ -60,15 +66,15 @@ function ToolsBar({ getFilter }) {
             <option value="name">Product Name </option>
             <option value="price">Price </option>
           </select>
-          <a
-            title="Set Descending Direction"
-            href="#"
-            className="action sorter-action sort-asc"
-            data-role="direction-switcher"
-            data-value="desc"
+          <div
+            className={
+              "action sorter-action sort-asc" +
+              (order === true ? " reverse" : "")
+            }
+            onClick={changeOrder}
           >
             <span>Set Descending Direction</span>
-          </a>
+          </div>
         </div>
       </div>
     </>

@@ -65,10 +65,11 @@ bin/magento setup:upgrade
 2. 套用 API , API 不具備的 data ,以 hard code 處理。
 3. 套用 SCSS 並使用 SCSS 變數。
 4. 以 react 框架簡單搭建，預覽方式如下。
+5. 排序 filter.
 
 HTML 架構不是未精簡，乃參考 Luma 主題去調整。故有看似冗余的 HTML & CSS Naming.
 
-理解頁面的互動功能（如排序與換頁）是放進 magento 主題去套用 function 實踐，故未在此 demo 裡實現。
+理解頁面的互動功能是放進 magento 主題去套用 function 實踐，故未在此 demo 裡實現。
 
 #### Install
 

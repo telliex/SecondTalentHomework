@@ -25,7 +25,17 @@ function App() {
       console.log(products.sort((a, b) => a.rating.rate - b.rating.rate));
       setProducts([...products.sort((a, b) => a.rating.rate - b.rating.rate)]);
     } else if (data === "name") {
-      console.log(products.sort((a, b) => a.title > b.title));
+      console.log(
+        products.sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        })
+      );
       setProducts([
         ...products.sort((a, b) => {
           if (a.title < b.title) {
@@ -42,6 +52,10 @@ function App() {
       setProducts([...products.sort((a, b) => a.price - b.price)]);
     }
   }
+
+  const reverseData = (data) => {
+    setProducts([...products.reverse()]);
+  };
 
   return (
     <div className="App">
@@ -77,7 +91,7 @@ function App() {
           </div>
         </div>
         <div className="column main">
-          <ToolsBar getFilter={getFilter} />
+          <ToolsBar getFilter={getFilter} reverseData={reverseData} />
           <div className="products wrapper grid products-grid">
             <ol className="products list items product-items product-items-list">
               {products.map((item) => {
