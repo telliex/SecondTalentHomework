@@ -6,21 +6,35 @@ import ProductItem from "./ProductItem";
 
 function App() {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
         console.log("data:", data);
-        // if (data.status === "OK") {
-        setProducts(data);
-        // } else {
-        //   console.error("Failed to fetch products");
-        // }
+
+        setProducts([
+          ...products.sort((a, b) => a.rating.rate - b.rating.rate),
+        ]);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
   }, []);
+
+  function getFilter(data) {
+    if (data === "rank") {
+      console.log(products.sort((a, b) => a.rating.rate - b.rating.rate));
+      setProducts([...products.sort((a, b) => a.rating.rate - b.rating.rate)]);
+    } else if (data === "name") {
+      console.log(products.sort((a, b) => a.name - b.name));
+      setProducts([...products.sort((a, b) => a.name - b.name)]);
+    } else {
+      console.log(products.sort((a, b) => a.price - b.price));
+      setProducts([...products.sort((a, b) => a.price - b.price)]);
+    }
+  }
+
   return (
     <div className="App">
       <div className="columns">
@@ -55,7 +69,7 @@ function App() {
           </div>
         </div>
         <div className="column main">
-          <ToolsBar />
+          <ToolsBar getFilter={getFilter} />
           <div className="products wrapper grid products-grid">
             <ol className="products list items product-items product-items-list">
               {products.map((item) => {

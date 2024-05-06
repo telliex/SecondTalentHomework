@@ -1,5 +1,18 @@
 import "./ToolsBar.scss";
-function ToolsBar() {
+import { useState } from "react";
+function ToolsBar({ getFilter }) {
+  const [selectedOption, setSelectedOption] = useState("rank");
+
+  // 當選擇改變時觸發的函數
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    setSelectedOption(value);
+    getFilter(value);
+
+    // 在這裡添加你想要觸發的其他函數
+    // 舉例：handleOtherFunction(value);
+  };
+
   return (
     <>
       <div className="toolbar toolbar-products toolbar-header">
@@ -36,8 +49,14 @@ function ToolsBar() {
           <label className="sorter-label" htmlFor="sorter">
             Sort By
           </label>
-          <select id="sorter" data-role="sorter" className="sorter-options">
-            <option value="position">Position </option>
+          <select
+            id="sorter"
+            data-role="sorter"
+            className="sorter-options"
+            value={selectedOption}
+            onChange={handleSelectChange}
+          >
+            <option value="rank">Rating</option>
             <option value="name">Product Name </option>
             <option value="price">Price </option>
           </select>
