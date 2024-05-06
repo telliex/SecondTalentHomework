@@ -25,8 +25,18 @@ function App() {
       console.log(products.sort((a, b) => a.rating.rate - b.rating.rate));
       setProducts([...products.sort((a, b) => a.rating.rate - b.rating.rate)]);
     } else if (data === "name") {
-      console.log(products.sort((a, b) => a.name - b.name));
-      setProducts([...products.sort((a, b) => a.name - b.name)]);
+      console.log(products.sort((a, b) => a.title > b.title));
+      setProducts([
+        ...products.sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        }),
+      ]);
     } else {
       console.log(products.sort((a, b) => a.price - b.price));
       setProducts([...products.sort((a, b) => a.price - b.price)]);
