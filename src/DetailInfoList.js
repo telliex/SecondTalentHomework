@@ -2,6 +2,7 @@ import "./DetailInfoList.scss";
 function DetailInfoList() {
   let properties = [
     {
+      id: 1,
       title: "Details",
       content:
         "The sofa quickly and easily turns into a spacious bed. It is recommended to use as a sleeping place for guests, not intended for daily use as a bed.",

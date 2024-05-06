@@ -1,10 +1,7 @@
 import "./ProductItem.scss";
 function ProductItem({ item, type }) {
   return (
-    <li
-      key={item.title + item.id}
-      className={"item product product-item " + type}
-    >
+    <li key={item.id} className={"item product product-item " + type}>
       <a
         href={"./detail?id=" + item.id}
         className="product photo product-item-photo-container"

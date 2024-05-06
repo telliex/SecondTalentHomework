@@ -14,8 +14,6 @@ function App() {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
-        console.log("data:", data);
-
         setProducts([
           ...data.slice(0, 12).sort((a, b) => a.rating.rate - b.rating.rate),
         ]);
@@ -36,22 +34,8 @@ function App() {
     }
 
     if (data === "rank") {
-      console.log(
-        products.slice(0, 12).sort((a, b) => a.rating.rate - b.rating.rate)
-      );
       setProducts([...products.sort((a, b) => a.rating.rate - b.rating.rate)]);
     } else if (data === "name") {
-      console.log(
-        products.slice(0, 12).sort((a, b) => {
-          if (a.title < b.title) {
-            return -1;
-          }
-          if (a.title > b.title) {
-            return 1;
-          }
-          return 0;
-        })
-      );
       setProducts([
         ...products.slice(0, 12).sort((a, b) => {
           if (a.title < b.title) {
@@ -64,7 +48,6 @@ function App() {
         }),
       ]);
     } else {
-      console.log(products.sort((a, b) => a.price - b.price));
       setProducts([...products.sort((a, b) => a.price - b.price)]);
     }
   }
@@ -74,13 +57,9 @@ function App() {
   };
 
   const getHowMany = (num) => {
-    console.log(num);
-
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
-        console.log("data:", data);
-
         if (filter === "rank") {
           setProducts([
             ...data.slice(0, num).sort((a, b) => a.rating.rate - b.rating.rate),
@@ -156,7 +135,13 @@ function App() {
               }
             >
               {products.map((item) => {
-                return <ProductItem item={item} type={itemType}></ProductItem>;
+                return (
+                  <ProductItem
+                    key={item.id}
+                    item={item}
+                    type={itemType}
+                  ></ProductItem>
+                );
               })}
             </ol>
           </div>

@@ -12,7 +12,6 @@ function Detail() {
     fetch("https://fakestoreapi.com/products/" + id)
       .then((response) => response.json())
       .then((data) => {
-        console.log("data1111:", data);
         // if (data.status === "OK") {
         setProducts(data);
         // } else {

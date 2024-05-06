@@ -1,6 +1,5 @@
 import "./DetailImages.scss";
 function DetailImages({ products }) {
-  console.log("88888:", products);
   return (
     <div
       className="gallery-placeholder"

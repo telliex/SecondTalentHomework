@@ -8,12 +8,7 @@ function DetailRelated() {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
-        console.log("data:", data);
-        // if (data.status === "OK") {
         setProducts(data);
-        // } else {
-        //   console.error("Failed to fetch products");
-        // }
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -29,9 +24,15 @@ function DetailRelated() {
         aria-labelledby="block-related-heading"
       >
         <div className="products wrapper grid products-grid products-related">
-          <ol className="products list items product-items product-items-list">
+          <ol className="products items product-items product-items-list">
             {products.map((item, index) => {
-              return <ProductItem item={item}></ProductItem>;
+              return (
+                <ProductItem
+                  key={item.id}
+                  item={item}
+                  type="grid"
+                ></ProductItem>
+              );
             })}
           </ol>
         </div>
