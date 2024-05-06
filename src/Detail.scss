@@ -97,9 +97,13 @@ ul {
 
 /* 大於 768px 寬度的設備，例如平板 */
 @media only screen and (min-width: 769px) {
+
+
   .product-detail .column.main {
     display: flex;
     flex-direction: row;
+    max-width: 1280px;
+    margin: 0 auto;
 
     .gallery-placeholder {
       width: 700px;

@@ -25,7 +25,7 @@ function DetailRelated() {
       >
         <div className="products wrapper grid products-grid products-related">
           <ol className="products items product-items product-items-list">
-            {products.map((item, index) => {
+            {products.slice(0, 4).map((item, index) => {
               return (
                 <ProductItem
                   key={item.id}
