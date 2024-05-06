@@ -1,6 +1,6 @@
 import "./ToolsBar.scss";
 import { useState } from "react";
-function ToolsBar({ getFilter, reverseData }) {
+function ToolsBar({ getFilter, reverseData, products }) {
   const [selectedOption, setSelectedOption] = useState("rank");
   const [order, setOrder] = useState(false);
   // 當選擇改變時觸發的函數
@@ -49,7 +49,7 @@ function ToolsBar({ getFilter, reverseData }) {
           </a>
         </div>
         <p className="toolbar-amount" id="toolbar-amount">
-          <span className="toolbar-number">12</span> Items{" "}
+          <span className="toolbar-number">{products.length}</span> Items
         </p>
         <div className="toolbar-sorter sorter">
           <label className="sorter-label" htmlFor="sorter">

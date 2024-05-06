@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 import ToolsBar from "./ToolsBar";
 import ToolsBarFooter from "./ToolsBarFooter";
@@ -6,6 +6,8 @@ import ProductItem from "./ProductItem";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState("rank");
+  const footerToolsBar = useRef();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -13,7 +15,9 @@ function App() {
       .then((data) => {
         console.log("data:", data);
 
-        setProducts([...data.sort((a, b) => a.rating.rate - b.rating.rate)]);
+        setProducts([
+          ...data.slice(0, 12).sort((a, b) => a.rating.rate - b.rating.rate),
+        ]);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -21,12 +25,19 @@ function App() {
   }, []);
 
   function getFilter(data) {
+    setFilter(data);
+    if (footerToolsBar.current) {
+      footerToolsBar.current.setDefaultPage();
+    }
+
     if (data === "rank") {
-      console.log(products.sort((a, b) => a.rating.rate - b.rating.rate));
+      console.log(
+        products.slice(0, 12).sort((a, b) => a.rating.rate - b.rating.rate)
+      );
       setProducts([...products.sort((a, b) => a.rating.rate - b.rating.rate)]);
     } else if (data === "name") {
       console.log(
-        products.sort((a, b) => {
+        products.slice(0, 12).sort((a, b) => {
           if (a.title < b.title) {
             return -1;
           }
@@ -37,7 +48,7 @@ function App() {
         })
       );
       setProducts([
-        ...products.sort((a, b) => {
+        ...products.slice(0, 12).sort((a, b) => {
           if (a.title < b.title) {
             return -1;
           }
@@ -55,6 +66,41 @@ function App() {
 
   const reverseData = (data) => {
     setProducts([...products.reverse()]);
+  };
+
+  const getHowMany = (num) => {
+    console.log(num);
+
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("data:", data);
+
+        if (filter === "rank") {
+          setProducts([
+            ...data.slice(0, num).sort((a, b) => a.rating.rate - b.rating.rate),
+          ]);
+        } else if (filter === "name") {
+          setProducts([
+            ...data.slice(0, num).sort((a, b) => {
+              if (a.title < b.title) {
+                return -1;
+              }
+              if (a.title > b.title) {
+                return 1;
+              }
+              return 0;
+            }),
+          ]);
+        } else {
+          setProducts([
+            ...data.slice(0, num).sort((a, b) => a.price - b.price),
+          ]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
   };
 
   return (
@@ -91,7 +137,11 @@ function App() {
           </div>
         </div>
         <div className="column main">
-          <ToolsBar getFilter={getFilter} reverseData={reverseData} />
+          <ToolsBar
+            getFilter={getFilter}
+            reverseData={reverseData}
+            products={products}
+          />
           <div className="products wrapper grid products-grid">
             <ol className="products list items product-items product-items-list">
               {products.map((item) => {
@@ -99,7 +149,7 @@ function App() {
               })}
             </ol>
           </div>
-          <ToolsBarFooter />
+          <ToolsBarFooter ref={footerToolsBar} getHowMany={getHowMany} />
         </div>
       </div>
     </div>
