@@ -1,8 +1,28 @@
 import "./Detail.scss";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import DetailImages from "./DetailImages";
 import DetailInfoList from "./DetailInfoList";
 import DetailRelated from "./DetailRelated";
 function Detail() {
+  const [products, setProducts] = useState({});
+  const [params] = useSearchParams();
+  useEffect(() => {
+    const id = params.get("id");
+    fetch("https://fakestoreapi.com/products/" + id)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("data1111:", data);
+        // if (data.status === "OK") {
+        setProducts(data);
+        // } else {
+        //   console.error("Failed to fetch products");
+        // }
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, []);
   return (
     <>
       <div className="breadcrumbs">
@@ -35,7 +55,7 @@ function Detail() {
           </li>
 
           <li className="item product">
-            <strong>Olivia 1/4 Zip Light Jacket</strong>
+            <strong>{products.title}</strong>
           </li>
         </ul>
       </div>
@@ -43,7 +63,7 @@ function Detail() {
       <div className="columns product-detail">
         <div className="column main">
           <div className="product media">
-            <DetailImages />
+            <DetailImages products={products} />
           </div>
           <div className="product-info-main">
             <div className="page-title-wrapper product">
@@ -53,7 +73,7 @@ function Detail() {
                   data-ui-id="page-title-wrapper"
                   itemProp="name"
                 >
-                  Simple Wood Chair Collection
+                  {products.title}
                 </span>
               </h1>
             </div>
@@ -78,7 +98,7 @@ function Detail() {
                       data-price-type="finalPrice"
                       className="price-wrapper "
                     >
-                      <span className="price">$77.00</span>
+                      <span className="price">${products.price}</span>
                     </span>
                     <meta itemProp="price" content="77" />
                     <meta itemProp="priceCurrency" content="USD" />
@@ -93,7 +113,7 @@ function Detail() {
                 <div className="product attribute sku">
                   <strong className="type">SKU#:</strong>
                   <div className="value" itemProp="sku">
-                    WJ12
+                    {products.id}
                   </div>
                 </div>
               </div>

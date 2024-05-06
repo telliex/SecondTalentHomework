@@ -1,5 +1,6 @@
 import "./DetailImages.scss";
-function DetailImages() {
+function DetailImages({ products }) {
+  console.log("88888:", products);
   return (
     <div
       className="gallery-placeholder"
@@ -38,20 +39,20 @@ function DetailImages() {
               data-gallery-role="stage-shaft"
             >
               <div
-                className="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
+                className="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img single-image"
                 aria-hidden="false"
                 data-active="true"
-                href="https://mabento2.test/media/catalog/product/cache/009ca9db79c1c90e6e197018a37a9358/w/j/wj01-red_main_1.jpg"
               >
                 <img
-                  src="https://mabento2.test/media/catalog/product/cache/009ca9db79c1c90e6e197018a37a9358/w/j/wj01-red_main_1.jpg"
+                  src={products.image}
                   alt="Stellar Solar Jacket"
                   className="fotorama__img"
                   aria-hidden="false"
+                  width="700"
                 />
               </div>
               <div
-                className="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
+                className="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img single-image"
                 aria-hidden="true"
                 href="https://mabento2.test/media/catalog/product/cache/009ca9db79c1c90e6e197018a37a9358/w/j/wj01-red_back_1.jpg"
               >
@@ -63,7 +64,7 @@ function DetailImages() {
                 />
               </div>
               <div
-                className="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
+                className="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img single-image"
                 aria-hidden="true"
                 href="https://mabento2.test/media/catalog/product/cache/009ca9db79c1c90e6e197018a37a9358/w/j/wj01-red_alt1_1.jpg"
               >

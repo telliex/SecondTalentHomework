@@ -1,3 +1,5 @@
+@import "./main";
+
 .toolbar.toolbar-header {
     label {
         cursor: default;
@@ -35,7 +37,7 @@
         vertical-align: baseline;
         width: 100%;
         box-sizing: border-box;
-        color: #4f4f4f;
+        color: $base-light-title-color;
     }
 
     option {
@@ -56,23 +58,19 @@
     }
 }
 
-
+/* 小於等於 768px 寬度的設備，例如手機 */
 @media only screen and (max-width: 768px) {
     .toolbar.toolbar-header {
-
         margin: 20px 20px 40px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-
 
         .shop-by {
             display: block;
 
             button {
                 background-color: #ffffff;
-
                 border-radius: 5px;
                 border: 1px solid #cccccc;
                 width: 80px;
@@ -82,10 +80,9 @@
 
         select {
             border: 1px solid #ccc;
-            box-shadow: inset 0 1px 0 0 #ffffff, inset 0 -1px 0 0 rgba(204, 204, 204, 0.3);
+            box-shadow: inset 0 1px 0 0 #ffffff, inset 0 -1px 0 0 #cccccc4d;
             border-radius: 5px;
         }
-
 
         .modes {
             display: none;
@@ -99,7 +96,7 @@
             vertical-align: middle;
             position: absolute;
             left: 20px;
-            color: #828282;
+            color: $properties-light-title-color;
             top: 60px;
         }
 
@@ -122,14 +119,13 @@
                 -moz-osx-font-smoothing: grayscale;
                 font-size: 16px;
                 line-height: inherit;
-                color: #828282;
+                color: $properties-light-title-color;
                 content: '\e613';
                 font-family: 'luma-icons';
                 vertical-align: middle;
                 display: inline-block;
                 font-weight: normal;
                 overflow: hidden;
-                speak: none;
                 text-align: center;
             }
 
@@ -144,19 +140,12 @@
                 width: 1px;
             }
         }
-
-
     }
-
-
-
-
 }
 
+/* 大於 768px 寬度的設備，例如平板 */
 @media only screen and (min-width: 769px) {
     .toolbar.toolbar-header {
-
-
         display: flex;
         justify-content: space-between;
 
@@ -247,8 +236,6 @@
                 border-radius: 0 3px 3px 0;
                 border-right: 1px solid #ccc;
             }
-
-
         }
 
         .toolbar-amount {
@@ -259,7 +246,7 @@
             vertical-align: middle;
             position: absolute;
             left: 100px;
-            color: #828282;
+            color: $properties-light-title-color;
         }
 
         .sorter {
@@ -281,14 +268,13 @@
                 -moz-osx-font-smoothing: grayscale;
                 font-size: 16px;
                 line-height: inherit;
-                color: #828282;
+                color: $properties-light-title-color;
                 content: '\e613';
                 font-family: 'luma-icons';
                 vertical-align: middle;
                 display: inline-block;
                 font-weight: normal;
                 overflow: hidden;
-                speak: none;
                 text-align: center;
             }
 
@@ -303,9 +289,7 @@
                 width: 1px;
             }
         }
-
     }
-
 }
 
 .toolbar-products {

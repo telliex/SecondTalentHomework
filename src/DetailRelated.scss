@@ -1,3 +1,5 @@
+@import "./main";
+
 .detail-related {
   margin-top: 40px;
 
@@ -11,18 +13,19 @@
 
     strong {
       font-size: 2.25rem;
-      color: #212121;
+      color: $base-title-color;
       font-weight: 200;
     }
   }
 }
 
+/* 小於等於 768px 寬度的設備，例如手機 */
 @media only screen and (max-width: 768px) {
-
   .detail-related .products-related {
     overflow: visible;
     height: auto;
   }
 }
 
+/* 大於 768px 寬度的設備，例如平板 */
 @media only screen and (min-width: 769px) {}

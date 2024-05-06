@@ -18,7 +18,10 @@ function DetailInfoList() {
     <>
       <ul className="product-info">
         {properties.map((property, index) => (
-          <li key={property.title} className={index === 0 ? "extend" : ""}>
+          <li
+            key={index + property.title}
+            className={index === 0 ? "extend" : ""}
+          >
             <div className="properties-title">{property.title}</div>
             <div className="properties-content">{property.content}</div>
           </li>

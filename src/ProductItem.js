@@ -1,9 +1,11 @@
 import "./ProductItem.scss";
+// import { Link, useNavigate } from "react-router-dom";
+import Detail from "./Detail";
 function ProductItem({ item }) {
   return (
-    <li key={item.id} className="item product product-item">
+    <li key={item.title + item.id} className="item product product-item">
       <a
-        href="https://mabento2.test/olivia-1-4-zip-light-jacket.html"
+        href={"./detail?id=" + item.id}
         className="product photo product-item-photo-container"
         tabIndex="-1"
       >
